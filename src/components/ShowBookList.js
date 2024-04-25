@@ -7,7 +7,7 @@ function ShowBookList() {
   const [books, setBooks] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:8083/api/books")
+      .get(`${process.env.REACT_APP_API_URL}/api/books`)
       .then((res) => {
         setBooks(res.data);
       })

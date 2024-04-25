@@ -15,7 +15,7 @@ function UpdateBookInfo(props) {
  const navigate = useNavigate();
  useEffect(() => {
  axios
- .get(`http://localhost:8083/api/books/${id}`)
+ .get(`${process.env.REACT_APP_API_URL}/api/books/${id}`)
  .then((res) => {
  setBook({
  title: res.data.title,
@@ -44,7 +44,7 @@ function UpdateBookInfo(props) {
  publisher: book.publisher,
  };
  axios
- .put(`http://localhost:8083/api/books/${id}`, data)
+ .put(`${process.env.REACT_APP_API_URL}/api/books/${id}`, data)
  .then((res) => {
  navigate(`/show-book/${id}`);
  })
@@ -147,7 +147,7 @@ Date</label>
  <br />
  <button
  type="submit"
- className="btn btn-outline-info btn-lg btnblock"
+ className="btn btn-outline-info btn-lg btn_block"
  >
  Update Book
  </button>
